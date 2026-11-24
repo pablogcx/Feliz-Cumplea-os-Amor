@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="fondo">
+<head>
+<meta charset="UTF8">
+    <link rel="stylesheet" href="estilosregalo.css">
+    <link rel="icon" type="image/x-icon" href="jirafita.png" >
+
+<h1>Feliz Cumpleaños mi amor Ɛ></h1>
+<h2>Ya han pasado 516 dias desde que empezamos a salir, <br>y han sido los mejores dias de mi vida.<br>
+    No me imaginaba llegar tan lejos contigo y no me imaginaria <br>ya una vida en la que tu no estes a mi lado.<br>
+    Desde que fuimos mejores amigos sabia que ibamos a ser inseparables,<br> ahora se que no me quiero separar de ti.
+    Siempre me gusta estar a tu lado y pensar, en pasar mi vida <br>a tu lado me hace muy feliz.
+</h2>
+<body>
+
+    <button onclick="mostrarOcultar()" class="btn">Abreme</button>
+
+    <div id="fotos" style="display: none;">
+
+        <div style="display: flex; align-items: center; justify-content: left; margin-left: 370px;">
+
+            <img id="imagen" src="1.png" width="350">
+
+            <p id="textoFoto" class="">Texto de la primera foto.</p>
+
+        </div>
+
+        <br>
+
+        <button onclick="cambiarFoto(-1)" class="btn">Retroceder</button>
+
+        <button onclick="cambiarFoto(1)" class="btn">Avanzar</button>
+
+    </div>
+
+    <script>
+
+        var fotos = [
+            {
+                imagen: "1.png",
+                texto: "Texto de la primera foto."
+            },
+            {
+                imagen: "2.png",
+                texto: "Texto de la segunda foto."
+            },
+            {
+                imagen: "3.png",
+                texto: "Texto de la tercera foto."
+            },
+            {
+                imagen: "flores.png",
+                texto: "Texto de la cuarta foto."
+            }
+        ];
+
+        var fotoActual = 0;
+
+        function mostrarOcultar() {
+            var fotosDiv = document.getElementById("fotos");
+            if (fotosDiv.style.display === "none") {
+                fotosDiv.style.display = "block";
+            } else {
+                fotosDiv.style.display = "none";
+            }
+        }
+
+        function cambiarFoto(direccion) {
+            fotoActual = fotoActual + direccion;
+
+            if (fotoActual >= fotos.length) {
+                fotoActual = 0;
+            }
+
+            if (fotoActual < 0) {
+                fotoActual = fotos.length - 1;
+            }
+
+            document.getElementById("imagen").src = fotos[fotoActual].imagen;
+
+            document.getElementById("textoFoto").textContent = fotos[fotoActual].texto;
+        }
+
+    </script>
+</body>
+</html>
+<br>
+<a href="#">volver</a>
+
+<br><br>
+<footer class="footer">Hecho por Jirafita.</footer>
+<br><br><br>
+</div>
+</body>
+</html>
