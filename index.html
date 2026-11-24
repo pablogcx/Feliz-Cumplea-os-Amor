@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html class="fondo">
 <head>
-<meta charset="UTF8">
+    <meta charset="UTF-8">
+    <title>Feliz Cumpleaños</title>
     <link rel="stylesheet" href="estilosregalo.css">
-    <link rel="icon" type="image/x-icon" href="jirafita.png" >
+    <link rel="icon" type="image/x-icon" href="jirafita.png">
+</head>
 
-<h1>Feliz Cumpleaños mi amor Ɛ></h1>
-<h2>Ya han pasado 516 dias desde que empezamos a salir, <br>y han sido los mejores dias de mi vida.<br>
-    No me imaginaba llegar tan lejos contigo y no me imaginaria <br>ya una vida en la que tu no estes a mi lado.<br>
-    Desde que fuimos mejores amigos sabia que ibamos a ser inseparables,<br> ahora se que no me quiero separar de ti.
-    Siempre me gusta estar a tu lado y pensar, en pasar mi vida <br>a tu lado me hace muy feliz. Porfa no llores con lo siguiente :)
-</h2>
 <body>
+
+    <h1>Feliz Cumpleaños mi amor Ɛ></h1>
+
+    <h2>
+        Ya han pasado 516 dias desde que empezamos a salir, <br>
+        y han sido los mejores dias de mi vida.<br>
+        No me imaginaba llegar tan lejos contigo y no me imaginaria <br>
+        ya una vida en la que tu no estes a mi lado.<br>
+        Desde que fuimos mejores amigos sabia que ibamos a ser inseparables,<br>
+        ahora se que no me quiero separar de ti.
+        Siempre me gusta estar a tu lado y pensar, en pasar mi vida <br>
+        a tu lado me hace muy feliz. Porfa no llores con lo siguiente :)
+    </h2>
 
     <button onclick="mostrarOcultar()" class="btn">Abreme</button>
 
@@ -21,7 +30,9 @@
 
             <img id="imagen" src="1.png" width="350">
 
-            <p id="textoFoto" class="">Este ya es tu segundo cumpleaños en el que estoy contigo. Me hace muy feliz poder pasarlo contigo. A veces me paro a mirar nuestras fotos y me doy cuenta de lo afortunado que soy por tenerte en mi vida. Cada una de ellas guarda un momento que, por pequeño que parezca en su día, ahora significa muchísimo para mí. Me encanta poder recordar todo lo que hemos vivido y saber que todavía nos quedan muchísimas experiencias por compartir. Ojalá nunca nos falten motivos para seguir llenando nuestras vidas con fotos y recuerdos</p>
+            <p id="textoFoto">
+                Este ya es tu segundo cumpleaños en el que estoy contigo. Me hace muy feliz poder pasarlo contigo. A veces me paro a mirar nuestras fotos y me doy cuenta de lo afortunado que soy por tenerte en mi vida. Cada una de ellas guarda un momento que, por pequeño que parezca en su día, ahora significa muchísimo para mí. Me encanta poder recordar todo lo que hemos vivido y saber que todavía nos quedan muchísimas experiencias por compartir. Ojalá nunca nos falten motivos para seguir llenando nuestras vidas con fotos y recuerdos
+            </p>
 
         </div>
 
@@ -30,6 +41,14 @@
         <button onclick="cambiarFoto(-1)" class="btn">Retroceder</button>
 
         <button onclick="cambiarFoto(1)" class="btn">Avanzar</button>
+
+        <br><br>
+
+        <button onclick="reproducirCancion()" class="btn" id="botonMusica">
+            Un poco de musica para que te rias un poco jaja ♡
+        </button>
+
+        <audio id="musica" src="toto.mp3">♡</audio>
 
     </div>
 
@@ -66,6 +85,7 @@
 
         function mostrarOcultar() {
             var fotosDiv = document.getElementById("fotos");
+
             if (fotosDiv.style.display === "none") {
                 fotosDiv.style.display = "block";
             } else {
@@ -89,15 +109,31 @@
             document.getElementById("textoFoto").textContent = fotos[fotoActual].texto;
         }
 
+        function reproducirCancion() {
+            var musica = document.getElementById("musica");
+            var boton = document.getElementById("botonMusica");
+
+            if (musica.paused) {
+                musica.play().then(function () {
+                    boton.textContent = "Pausar canción ♡";
+                }).catch(function () {
+                    alert("No se ha podido reproducir la canción. Comprueba que el archivo cancion.mp3 está subido correctamente.");
+                });
+            } else {
+                musica.pause();
+                boton.textContent = "Nuestra canción ♡";
+            }
+        }
+
     </script>
-</body>
-</html>
-<br>
 
+    <br><br>
 
-<br><br>
-<footer class="footer">Con michu amor. Hecho por tu Jirafita.</footer>
-<br><br><br>
-</div>
+    <footer class="footer">
+        Con michu amor. Hecho por tu Jirafita.
+    </footer>
+
+    <br><br><br>
+
 </body>
 </html>
