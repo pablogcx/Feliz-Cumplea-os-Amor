@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="fondo">
+<head>
+<meta charset="UTF8">
+    <link rel="stylesheet" href="estilosregalo.css">
+    <link rel="icon" type="image/x-icon" href="jirafita.png" >
+
+<h1>Feliz San Valentin Señorita Ɛ></h1>
+<h2>Ya han pasado 570 dias desde que empezamos a salir, y han sido los mejores dias de mi vida.
+    No me imaginaba llegar tan lejos contigo y no me imaginaria ya una vida en la que tu no estes a mi lado.
+</h2>
+<body>
+
+    <button onclick="mostrarOcultar()" class="btn">Abreme</button>
+
+    <div id="formulario" style="display: none;" class="container">
+
+        <h3>Fotitos</h3>
+<body>
+    <div id="inicio" class="seccion">
+        <button onclick="mostrarSeccion('segunda')" class="btn">
+            Siguiente
+        </button>
+        <p>
+            <img src="fondo.png">
+        </p>
+    </div>
+
+    <div id="segunda" class="seccion">
+        <button onclick="mostrarSeccion('inicio')" class="btn">
+            Anterior
+        </button>
+        <p>
+            adiooossshh
+        </p>
+    </div>
+
+    <script>
+        function mostrarSeccion(id) {
+            document.querySelectorAll('.seccion').forEach(seccion => {
+                seccion.style.display = 'none';
+            });
+
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+
+</body>
+
+    <script>
+        function mostrarOcultar() {
+            var formulario = document.getElementById("formulario");
+            if (formulario.style.display === "none") {
+                formulario.style.display = "block";
+            } else {
+                formulario.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+</html>
+
+<a href="file:///E:/regalo/regalo.html"></a>
+<footer>Hecho por Jirafita.</footer>
+</div>
+</body>
+</html>
