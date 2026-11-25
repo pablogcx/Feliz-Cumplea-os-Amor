@@ -26,7 +26,7 @@ h2{
 	border-width: 4px;
 	border-color: #0044ff;
     margin-right: 20px;
-    margin-left: 200px;
+    margin-left: 300px;
 }
 
 .btn:hover{
@@ -37,6 +37,62 @@ h2{
 #textoFoto {
     font-size: 22px;
     line-height: 1.6;
-    color: #cc00ff;
+    color:#cc00ff;
     margin: 20px;
+}
+
+.reproductor {
+    margin: 25px auto;
+    padding: 15px;
+    width: 350px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.barra-musica {
+    width: 100%;
+    cursor: pointer;
+}
+
+.controles-musica {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.tiempo {
+    font-size: 13px;
+}
+
+.volumen {
+    width: 90px;
+    cursor: pointer;
+}
+
+#botonMusica {
+    margin: 5px;
+}
+
+    color: #cc00ff;
+    padding: 10px 0;
+}
+
+.calendario td {
+    padding: 10px 0;
+    border-radius: 50%;
+}
+
+.dia-especial {
+    background-color: #cc00ff;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.calendario p {
+    color: #cc00ff;
+    font-weight: bold;
+    font-size: 17px;
 }
