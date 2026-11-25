@@ -2,14 +2,50 @@
 <html class="fondo">
 <head>
     <meta charset="UTF-8">
-    <title>Feliz Cumpleaños</title>
+    <title>Feliz Cumpleaños ♡</title>
     <link rel="stylesheet" href="estilosregalo.css">
     <link rel="icon" type="image/x-icon" href="jirafita.png">
+
+    <style>
+        .reproductor {
+            margin: 25px auto;
+            padding: 15px;
+            width: 350px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .barra-musica {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .controles-musica {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .tiempo {
+            font-size: 13px;
+        }
+
+        .volumen {
+            width: 90px;
+            cursor: pointer;
+        }
+
+        #botonMusica {
+            margin: 5px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Feliz Cumpleaños mi amor Ɛ></h1>
+    <h1>Feliz Cumpleaños mi amor ♡</h1>
 
     <h2>
         Ya han pasado 516 dias desde que empezamos a salir, <br>
@@ -19,7 +55,7 @@
         Desde que fuimos mejores amigos sabia que ibamos a ser inseparables,<br>
         ahora se que no me quiero separar de ti.
         Siempre me gusta estar a tu lado y pensar, en pasar mi vida <br>
-        a tu lado me hace muy feliz. Porfa no llores con lo siguiente :)
+        a tu lado me hace muy feliz. Porfa no llores con lo siguiente 
     </h2>
 
     <button onclick="mostrarOcultar()" class="btn">Abreme</button>
@@ -44,11 +80,48 @@
 
         <br><br>
 
-        <button onclick="reproducirCancion()" class="btn" id="botonMusica">
-            Un poco de musica para que te rias un poco jaja ♡
-        </button>
+        <div class="reproductor">
 
-        <audio id="musica" src="toto.mp3">♡</audio>
+            <button onclick="reproducirCancion()" class="btn" id="botonMusica">
+                Reproducir ♡
+            </button>
+
+            <br><br>
+
+            <div class="controles-musica">
+
+                <span id="tiempoActual" class="tiempo">0:00</span>
+
+                <input
+                    type="range"
+                    id="barraMusica"
+                    class="barra-musica"
+                    value="0"
+                    min="0"
+                    max="100"
+                >
+
+                <span id="duracion" class="tiempo">0:00</span>
+
+            </div>
+
+            <br>
+
+            <label for="volumen">Volumen:</label>
+
+            <input
+                type="range"
+                id="volumen"
+                class="volumen"
+                min="0"
+                max="1"
+                step="0.01"
+                value="1"
+            >
+
+            <audio id="musica" src="toto.mp3"></audio>
+
+        </div>
 
     </div>
 
@@ -105,24 +178,91 @@
             }
 
             document.getElementById("imagen").src = fotos[fotoActual].imagen;
-
             document.getElementById("textoFoto").textContent = fotos[fotoActual].texto;
         }
 
+
+        var musica = document.getElementById("musica");
+        var botonMusica = document.getElementById("botonMusica");
+        var barraMusica = document.getElementById("barraMusica");
+        var volumen = document.getElementById("volumen");
+
         function reproducirCancion() {
-            var musica = document.getElementById("musica");
-            var boton = document.getElementById("botonMusica");
 
             if (musica.paused) {
+
                 musica.play().then(function () {
-                    boton.textContent = "Pausar canción ♡";
+                    botonMusica.textContent = "Pausar ♡";
                 }).catch(function () {
-                    alert("No se ha podido reproducir la canción. Comprueba que el archivo cancion.mp3 está subido correctamente.");
+                    alert("No se ha podido reproducir la canción. Comprueba el archivo cancion.mp3.");
                 });
+
             } else {
+
                 musica.pause();
-                boton.textContent = "Nuestra canción ♡";
+                botonMusica.textContent = "Reproducir ♡";
+
             }
+        }
+
+
+        musica.addEventListener("timeupdate", function () {
+
+            if (musica.duration) {
+                barraMusica.value = (musica.currentTime / musica.duration) * 100;
+            }
+
+            document.getElementById("tiempoActual").textContent =
+                formatoTiempo(musica.currentTime);
+
+        });
+
+
+        musica.addEventListener("loadedmetadata", function () {
+
+            document.getElementById("duracion").textContent =
+                formatoTiempo(musica.duration);
+
+        });
+
+
+        barraMusica.addEventListener("input", function () {
+
+            if (musica.duration) {
+                musica.currentTime = (barraMusica.value / 100) * musica.duration;
+            }
+
+        });
+
+
+        volumen.addEventListener("input", function () {
+
+            musica.volume = volumen.value;
+
+        });
+
+
+        musica.addEventListener("ended", function () {
+
+            botonMusica.textContent = "Reproducir ♡";
+            barraMusica.value = 0;
+
+        });
+
+
+        function formatoTiempo(segundos) {
+
+            if (!Number.isFinite(segundos)) {
+                return "0:00";
+            }
+
+            var minutos = Math.floor(segundos / 60);
+            var segundosRestantes = Math.floor(segundos % 60);
+
+            return minutos + ":" +
+                (segundosRestantes < 10 ? "0" : "") +
+                segundosRestantes;
+
         }
 
     </script>
@@ -130,7 +270,7 @@
     <br><br>
 
     <footer class="footer">
-        Con michu amor. Hecho por tu Jirafita.
+        Con michu amor. Hecho por tu Jirafita. ♡
     </footer>
 
     <br><br><br>
